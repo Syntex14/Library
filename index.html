@@ -14,16 +14,15 @@
         <h2>Your local library</h2>
     </header>
     <div class="book-addition">
+    <form id="book-form">
         <div class="book-input">
-            <div class="book-input-name">
-                <p>Book</p>
+                <label for="bookName">Book</label>
                 <input type="text" id="book"name="book">
-            </div>
-            <div class="book-input-author"></div>
-                <p>Author</p>
+            
+                <label for="author">Author</label>
                 <input type="text" id ="author" name="author">
-            <div class="book-input-status"></div>
-                <p>Status</p>
+            
+                <label for="bookStatus">Status</label>
                 <input type="text" id ="status" name = "status">
         </div>
     </div>
@@ -31,14 +30,17 @@
     <div class="button-submit">
         <button class="submit-book">Submit</button>
     </div>
+    </form>
 
-    <div class="book-table">
-        <table>
-            <tr>
-                <th>Book</th>
-                <th>Author</th>
-                <th>Status</th>
-            </tr>
+    <div id="book-table-content">
+        <table id = "book-table">
+            <tbody id = "t-body">
+                <tr class = "table-rows">
+                    <th>Book</th>
+                    <th>Author</th>
+                    <th>Status</th>
+                </tr>
+            </tbody>
         </table>
     </div>
     
