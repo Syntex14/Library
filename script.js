@@ -32,9 +32,29 @@ function getBook (e) {
 }
 
 function buildLibraryTableRow () {
-    let tableRow = "<tr><td></td><td></td><td></td></tr>";
+    let tableRow = `<tr><td class = "book"></td><td class = "author"></td><td class = "bookStatus"></td></tr>`;
     const getTableRow = document.getElementById("t-body")
     getTableRow.insertAdjacentHTML("beforeend", tableRow);
-    console.log(getTableRow);
+    
+    displayBook();
+}
+
+function displayBook () {
+    const getBookRow = document.querySelectorAll("tr").item(1).querySelectorAll("td");
+    const getBookName = myLibrary[0].book;
+    const getBookAuthor = myLibrary[0].author;
+    const getBookStatus = myLibrary[0].bookStatus;
+
+    getBookRow[0].textContent = getBookName;
+    getBookRow[1].textContent = getBookAuthor;
+    getBookRow[2].textContent = getBookStatus;
+    // need to create two for loops
+        // 1. Deals with the getBookRow.item, will control what row we are on
+        // 2. Deals with getBookInfo, will control what book we are in myLibrary
+            // both will use length to go through the nodelist and array respectively
+            // may to have create conditional in loops that check to see info has already been added
+                // slap a class on it?
+            
+    console.log(getBookRow);
     
 }
