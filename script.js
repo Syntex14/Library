@@ -16,6 +16,9 @@ function addBookToLibrary (bookPropertiesArray) {
 const bookRegistration = document.querySelector("#book-form");
 bookRegistration.addEventListener("submit", getBook);
 
+const deleteBookListener = document.getElementById("t-body");
+deleteBookListener.addEventListener("click", deleteBook);
+
 
 function getBook (e) {
     e.preventDefault();
@@ -32,7 +35,7 @@ function getBook (e) {
 }
 
 function buildLibraryTableRow () {
-    let tableRow = `<tr><td class = "book"></td><td class = "author"></td><td class = "bookStatus"></td></tr>`;
+    let tableRow = `<tr class = "table-row"><td class = "book"></td><td class = "author"></td><td class = "bookStatus"></td><td class = "delete"><button>Delete</button></td></tr>`;
     const getTableRow = document.getElementById("t-body")
     getTableRow.insertAdjacentHTML("beforeend", tableRow);
     
@@ -40,21 +43,33 @@ function buildLibraryTableRow () {
 }
 
 function displayBook () {
-    const getBookRow = document.querySelectorAll("tr").item(1).querySelectorAll("td");
-    const getBookName = myLibrary[0].book;
-    const getBookAuthor = myLibrary[0].author;
-    const getBookStatus = myLibrary[0].bookStatus;
+    for (i = 0; i < myLibrary.length; i++) {
+         const getBookRow = document.querySelectorAll(".table-row").item(i).querySelectorAll("td");
+                getBookRow[0].textContent = myLibrary[i].book;
+                getBookRow[1].textContent = myLibrary[i].author;
+                getBookRow[2].textContent = myLibrary[i].bookStatus;
+                    // this can be further optimized by using spread operators and arrays
 
-    getBookRow[0].textContent = getBookName;
-    getBookRow[1].textContent = getBookAuthor;
-    getBookRow[2].textContent = getBookStatus;
+        }
+}
+
+function deleteBook(e) {
+    console.log(e);
+        // target tr using path
+        // remove tr by using remove()
+        // delete book from myLibrary
+        
+}
+        
+    
+    
+    
+
+    
     // need to create two for loops
         // 1. Deals with the getBookRow.item, will control what row we are on
         // 2. Deals with getBookInfo, will control what book we are in myLibrary
             // both will use length to go through the nodelist and array respectively
             // may to have create conditional in loops that check to see info has already been added
                 // slap a class on it?
-            
-    console.log(getBookRow);
-    
-}
+        
