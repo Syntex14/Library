@@ -35,7 +35,7 @@ function getBook (e) {
 }
 
 function buildLibraryTableRow () {
-    let tableRow = `<tr class = "table-row"><td class = "book"></td><td class = "author"></td><td class = "bookStatus"></td><td class = "delete"><button>Delete</button></td></tr>`;
+    let tableRow = `<tr class = "table-row"><td class = "book"></td><td class = "author"></td><td class = "bookStatus"></td><td><button class = "delete" >Delete</button></td></tr>`;
     const getTableRow = document.getElementById("t-body")
     getTableRow.insertAdjacentHTML("beforeend", tableRow);
     
@@ -54,11 +54,15 @@ function displayBook () {
 }
 
 function deleteBook(e) {
-    console.log(e);
-        // target tr using path
-        // remove tr by using remove()
-        // delete book from myLibrary
-        
+    if (e.target.className === "delete") {
+        const getRowPath = e.composedPath();
+        getRowPath[2].remove();
+
+        // how to delete entry into myLibrary?
+        // how can we get the value of the tr in terms of the parent element, e.g. t-body
+            // if we can get this value, we can pass this value to myLibrary[value].splice
+    }
+    
 }
         
     
